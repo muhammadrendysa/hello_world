@@ -1,6 +1,6 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://analyticsphere.netlify.app/'
 languageCode = 'en-us'
-title = 'Analytics Prodigy'
+title = 'Analytics Sphere'
 theme = "hugo-blog-awesome"
 defaultContentLanguage = "en-gb"
 googleAnalytics = '' # G-MEASUREMENT_ID
@@ -47,7 +47,7 @@ disqusShortname = ''
   additionalScripts = ['js/custom.js', 'js/custom-2.js']
 
 [params.author]
-  avatar = "my_avatar-1.jpg" # put the file in assets folder; also ensure that image has same height and width
+  avatar = "avatar2.jpg" # put the file in assets folder; also ensure that image has same height and width
   # Note: image is not rendered if the resource(avatar image) is not found. No error is displayed.
   intro = "Analytics Prodigy"
   name = "Muhammad Rendy S"
