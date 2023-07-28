@@ -51,7 +51,7 @@ disqusShortname = ''
   # Note: image is not rendered if the resource(avatar image) is not found. No error is displayed.
   intro = "Analytics Sphere"
   name = "Muhammad Rendy S"
-  description = "I'm a guy studying data science and biotechnology."
+  description = "I will keep walking in the desert even if I don't find the end, I will keep walking."
 
 [params.webmanifest]
   name = "sitename" # will use "params.sitename" or "title" by default
