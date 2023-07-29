@@ -2,6 +2,7 @@
 title: "Identifikasi_Outlier_dalam_R"
 date: 2023-07-30T01:42:36+07:00
 author: Muhammad Rendy Saputra
+math: true
 ---
 
 ## Identifikasi Outlier dengan r
@@ -206,7 +207,7 @@ dan ketiga, serta maksimum) dan pengamatan apa pun yang diklasifikasikan
 sebagai pencilan yang dicurigai dengan menggunakan kriteria rentang
 antar kuartil (interquartile range, IQR).
 
-Kriteria IQR berarti bahwa semua pengamatan di atas $q_{0.75} + 1.5 \cdot IQR$ atau di bawahnya $q_{0.25} - 1.5 \cdot IQR$ (dimana $q_{0.25}$ dan $q_{0.75}$ masing-masing sesuai dengan kuartil pertama dan kuartil ketiga, dan **`IQR`** adalah selisih antara kuartil ketiga dan kuartil pertama.)
+Kriteria IQR berarti bahwa semua pengamatan di atas **$q_{0.75} + 1.5 \cdot IQR$** atau di bawahnya **$q_{0.25} - 1.5 \cdot IQR$** (dimana **$q_{0.25}$** dan **$q_{0.75}$** masing-masing sesuai dengan kuartil pertama dan kuartil ketiga, dan IQR adalah selisih antara kuartil ketiga dan kuartil pertama.)
 dianggap pencilan potensial oleh R.
 
 Dengan kata lain, semua pengamatan di luar interval berikut akan
@@ -391,7 +392,7 @@ z-skor, yang didefinisikan sebagai
 
 $z_i = \frac{x_i - \overline{X}}{s_X}$
 
-dimana $\overline{X}$ adalah rata-rata dari ***X*** dan ***sX*** adalah standar deviasi
+dimana $\overline{X}$ adalah rata-rata dari $\text{X}$ dan $\text{sX}$ adalah standar deviasi
 
 Hal ini disebut sebagai penskalaan, yang dapat dilakukan dengan fungsi
 `scale()` di R.
@@ -447,11 +448,11 @@ menurut metode ini.
 Metode lain, yang dikenal sebagai `Hampel filter` terdiri dari
 mempertimbangkan sebagai outlier nilai-nilai diluar interval () yang
 dibentuk oleh median, ditambah atau dikurangi dengan 3 deviasi absolut
-median ***MAD***
+median $\text{MAD}$
 
-***I = [median - 3 . MAD;median + 3 . MAD]***
+$\text{I = [median - 3 . MAD;median + 3 . MAD]}$
 
-dimana ***MAD*** adalah deviasi absolut median dan didefinisikan sebagai
+dimana $\text{MAD}$ adalah deviasi absolut median dan didefinisikan sebagai
 median dari deviasi absolut dari median data $\tilde{X} = \text{median}(X)$:
 
 $\text{MAD} = \text{median}(|X_i - \tilde{X}|)$
@@ -487,7 +488,7 @@ outlier_ind
 
 Menurut filter Hampel, ada 3 pencilan untuk variabel `hwy`.
 
-#### Uji statistik
+### Uji statistik
 
 Pada bagian ini, kami menyajikan 3 teknik yang lebih formal untuk
 mendeteksi pencilan:
@@ -507,7 +508,7 @@ pencilan) **terdistribusi secara normal**. Asumsi normalitas harus
 diverifikasi sebelum menerapkan tes-tes ini untuk pencilan (lihat cara
 menguji asumsi normalitas dalam R).
 
-##### Uji Grubbs
+#### Uji Grubbs
 
 Uji Grubbs memungkinkan untuk mendeteksi apakah nilai tertinggi atau
 terendah dalam dataset adalah pencilan.
@@ -516,13 +517,13 @@ Uji Grubbs mendeteksi satu pencilan dalam satu waktu (nilai tertinggi
 atau terendah), sehingga hipotesis nol dan alternatifnya adalah sebagai
 berikut:
 
-- $\H_0$ = nilai tertinggi bukan merupakan pencilan
-- $\H_1$ = nilai tertinggi adalah pencilan
+- $\text H_0$ = nilai tertinggi bukan merupakan pencilan
+- $\text H_1$ = nilai tertinggi adalah pencilan
 
 jika kita ingin menguji nilai tertinggi, atau:
 
-- $\H_0$ = nilai terendah bukan merupakan pencilan
-- $\H_1$ = nilai terendah adalah pencilan
+- $\text H_0$ = nilai terendah bukan merupakan pencilan
+- $\text H_1$ = nilai terendah adalah pencilan
 
 jika kita ingin menguji nilai terendah.
 
@@ -609,7 +610,7 @@ test
 Nilai p-value adalah \< 0,001. Pada tingkat signifikansi 5%, kami
 menyimpulkan bahwa nilai tertinggi 212 adalah pencilan.
 
-##### Uji Dixon’s
+#### Uji Dixon’s
 
 Serupa dengan uji Grubbs, uji Dixon digunakan untuk menguji apakah satu
 nilai rendah atau tinggi merupakan pencilan. Jadi, jika ada lebih dari
@@ -617,7 +618,7 @@ satu pencilan yang dicurigai, pengujian harus dilakukan pada pencilan
 yang dicurigai ini secara individual.
 
 Perhatikan bahwa uji Dixon paling berguna untuk ukuran sampel yang kecil
-(biasanya ***n*** $\leg$ ***25***).
+(biasanya $n \leq 25$).
 
 Untuk melakukan uji Dixon di R, kami menggunakan fungsi `dixon.test()`
 dari paket `{outliers}`. Namun, kami membatasi dataset kami pada 20
@@ -700,7 +701,7 @@ test
 Hasilnya menunjukkan bahwa nilai terendah kedua, yaitu 20, **bukanlah**
 pencilan (p-value = 0,13).
 
-##### Uji Rosner’s
+#### Uji Rosner’s
 
 Uji Rosner untuk outlier memiliki kelebihan yaitu:
 
@@ -711,7 +712,7 @@ Uji Rosner untuk outlier memiliki kelebihan yaitu:
     yang nilainya dekat dengan outlier lain dapat tidak terdeteksi.
 
 Tidak seperti uji Dixon, perlu diketahui bahwa uji Rosner paling tepat
-digunakan ketika ukuran sampel besar (***n*** **20**\*). oleh karena
+digunakan ketika ukuran sampel besar ($n \ge 20$). oleh karena
 itu, saya menggunakan dataset awal lagi `mpg`, yang mencangkup 234
 observasi
 
