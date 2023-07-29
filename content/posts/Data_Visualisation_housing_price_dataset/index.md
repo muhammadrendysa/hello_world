@@ -34,7 +34,7 @@ author: Muhammad Rendy Saputra
 ## import dataset
 
 ``` r
-housing <- read.csv("C:/Users/Repets/Downloads/Housing.csv", stringsAsFactors = TRUE)
+housing <- read.csv("C:Housing.csv", stringsAsFactors = TRUE)
 dim(housing)
 ```
 
