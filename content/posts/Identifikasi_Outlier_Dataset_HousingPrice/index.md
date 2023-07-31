@@ -664,8 +664,7 @@ ggplot(data = housing_data3, mapping = aes(x = area))+
 
 ![](unnamed-chunk-42-1.png)<!-- -->
 
-terlihat sudah outlier sudah tidak terlihat ketika menggunakan metode
-`hampel filter`
+outlier sudah tidak terlihat ketika menggunakan metode `hampel filter`
 
 dataset Housing_price not outlier is
 [here](https://github.com/muhammadrendysa/dataset_tanpa_outlier/blob/main/Housing_price_notOutlier.xlsx)
